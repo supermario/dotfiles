@@ -1,2 +1,2 @@
 install:
-  ln -vsf ${PWD}/gitconfig ${HOME}/.gitconfig
+	ln -vsf ${PWD}/gitconfig ${HOME}/.gitconfig
