@@ -18,7 +18,7 @@ for al in `__git_aliases`; do
 done
 
 # Run rubocop for all new/modified files
-alias rc="git status --short | grep -v -e '^\s*[DR]' | awk '{print $2}' | grep -e 'rb$' | xargs rubocop"
+alias rc="git status --short | grep -v -e '^\s*[DR]' | awk '{print \$2}' | grep -e 'rb$' | xargs rubocop"
 
 # Run rspec for all new/modified spec files since origin/master
 alias rt="git diff --name-only HEAD origin/master | grep -e 'spec.*\.rb' | xargs rspec"
