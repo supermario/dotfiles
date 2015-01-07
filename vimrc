@@ -101,3 +101,12 @@ let g:ctrlp_custom_ignore = '\v[\/](node_modules)$'
 " Gitgutter
 highlight clear SignColumn
 
+" Strip whitespace on write
+fun! StripTrailingWhitespace()
+  if &ft =~ 'vim\|vimrc'
+    return
+  endif
+  %s/\s\+$//e
+endfun
+autocmd BufWritePre * call StripTrailingWhitespace()
+
