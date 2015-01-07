@@ -23,6 +23,9 @@
   s = status
   co = checkout
   cob = checkout -b
+
+  cpnc = cherry-pick --no-commit
+
   # list branches sorted by last modified
   b = "!git for-each-ref --sort='-authordate' --format='%(authordate)%09%(objectname:short)%09%(refname)' refs/heads | sed -e 's-refs/heads/--'"
   bd = branch -d
@@ -39,3 +42,5 @@
   la = "!git config -l | grep alias | cut -c 7-"
 [push]
   default = current
+[core]
+	editor = /usr/local/bin/vim
