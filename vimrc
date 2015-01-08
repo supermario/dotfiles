@@ -17,6 +17,7 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'pangloss/vim-javascript'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'jbohren-forks/vim-gitgutter'
+Plugin 'slim-template/vim-slim'
 
 call vundle#end()
 filetype plugin indent on
