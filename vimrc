@@ -27,6 +27,8 @@ filetype indent on          " load filetype-specific indent files
 """""""""""""""""""""
 syntax on
 set background=dark
+let g:solarized_termtrans=1
+let g:solarized_termcolors=16
 colorscheme solarized
 
 set number     " show line numbers
@@ -47,7 +49,6 @@ set shiftwidth=2
 set list " Show `listchars` characters
 set listchars=tab:=»,trail:·
 set laststatus=2
-set t_Co=256
 set fillchars+=vert:\ 
 set cc=121
 set textwidth=80
