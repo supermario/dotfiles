@@ -94,9 +94,13 @@ if exists(":Tabularize")
   vmap <Leader>a= :Tabularize /=<CR>
 endif
 
-" CtrlP wildignore
+" CtrlP settings
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 let g:ctrlp_custom_ignore = '\v[\/](node_modules)$'
+let g:ctrlp_prompt_mappings = {
+    \ 'AcceptSelection("e")': ['<c-t>'],
+    \ 'AcceptSelection("t")': ['<cr>', '<2-LeftMouse>'],
+    \ }
 
 " Gitgutter
 highlight clear SignColumn
