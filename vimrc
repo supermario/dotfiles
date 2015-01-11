@@ -63,6 +63,8 @@ let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:NERDTreeWinSize = 42
 
+" Powerline font support
+let g:airline_powerline_fonts = 1
 
 " Custom Mappings "
 """""""""""""""""""
