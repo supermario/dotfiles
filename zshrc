@@ -79,9 +79,14 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 eval "$(rbenv init -)"
 eval "$(direnv hook zsh)"
 
 # Extend git plugin with 'gs' as 'gst' is an unecessary letter longer
 alias gs='git status'
 compdef _git gs=git-status
+
+alias rdbm='rake db:migrate'
+alias rdbmt='rake db:migrate RAILS_ENV=test'
+

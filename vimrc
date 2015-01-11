@@ -118,3 +118,5 @@ fun! StripTrailingWhitespace()
 endfun
 autocmd BufWritePre * call StripTrailingWhitespace()
 
+" FZF
+set rtp+=~/.fzf
