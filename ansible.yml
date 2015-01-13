@@ -19,6 +19,7 @@
       - git
       - grep
       - htop-osx
+      - hub
       - imagemagick
       - libxml2
       - libyaml
