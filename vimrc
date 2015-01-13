@@ -118,5 +118,11 @@ fun! StripTrailingWhitespace()
 endfun
 autocmd BufWritePre * call StripTrailingWhitespace()
 
+" String trailing empty newlines on write
+fun! StripTrailingNewlines()
+  %s/\($\n\s*\)\+\%$//e
+endfun
+autocmd BufWritePre * call StripTrailingNewlines()
+
 " FZF
 set rtp+=~/.fzf
