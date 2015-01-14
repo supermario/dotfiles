@@ -18,6 +18,7 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'jbohren-forks/vim-gitgutter'
 Plugin 'slim-template/vim-slim'
+Plugin 'junegunn/vim-easy-align'
 
 call vundle#end()
 filetype plugin indent on
@@ -126,3 +127,6 @@ autocmd BufWritePre * call StripTrailingNewlines()
 
 " FZF
 set rtp+=~/.fzf
+
+" EasyAlign
+vmap <Enter> <Plug>(EasyAlign)
