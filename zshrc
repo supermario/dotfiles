@@ -97,4 +97,4 @@ alias rdbmt='rake db:migrate RAILS_ENV=test'
 alias rc="gfc | grep -v -e '^\s*[DR]' | awk '{print \$2}' | grep -e 'rb$' | xargs rubocop"
 
 # Run rspec for all new/modified spec files since origin/master
-alias rt="git diff --name-only master..HEAD | grep -e 'spec.*\.rb' | xargs rspec"
+alias rt="rspec `git diff --name-only origin/master..HEAD | grep -e 'spec.*\.rb'`"
