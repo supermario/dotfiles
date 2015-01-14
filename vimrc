@@ -109,6 +109,7 @@ let g:ctrlp_prompt_mappings = {
 
 " Gitgutter
 highlight clear SignColumn
+let g:gitgutter_sign_column_always = 1
 
 " Strip whitespace on write
 fun! StripTrailingWhitespace()
