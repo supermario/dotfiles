@@ -19,6 +19,7 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'jbohren-forks/vim-gitgutter'
 Plugin 'slim-template/vim-slim'
 Plugin 'junegunn/vim-easy-align'
+Plugin 'tpope/vim-rails'
 
 call vundle#end()
 filetype plugin indent on
