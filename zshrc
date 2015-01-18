@@ -88,7 +88,7 @@ alias gs='git status'
 compdef _git gs=git-status
 
 # Git files changed (since fork from master)
-alias gfc='git --no-pager diff --name-status master..HEAD'
+alias gfc='git --no-pager diff --name-status origin/master..HEAD'
 
 alias rdbm='rake db:migrate'
 alias rdbmt='rake db:migrate RAILS_ENV=test'
@@ -96,5 +96,8 @@ alias rdbmt='rake db:migrate RAILS_ENV=test'
 # Run rubocop for all new/modified files
 alias rc="gfc | grep -v -e '^\s*[DR]' | awk '{print \$2}' | grep -e 'rb$' | xargs rubocop"
 
+# Rails tests changed
+alias rtc="git --no-pager diff --name-only origin/master..HEAD | grep -e '/\w*spec.rb'"
+
 # Run rspec for all new/modified spec files since origin/master
-alias rt="rspec `git diff --name-only origin/master..HEAD | grep -e 'spec.*\.rb'`"
+alias rt="rtc; rspec \`rtc\`"
