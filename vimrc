@@ -1,29 +1,59 @@
-" Plugins "
-"""""""""""
-filetype off
-"set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+"NeoBundle Scripts-----------------------------
+if has('vim_starting')
+  if &compatible
+    set nocompatible               " Be iMproved
+  endif
 
-Plugin 'kien/ctrlp.vim'
-Plugin 'godlygeek/tabular'
-Plugin 'bling/vim-airline'
-Plugin 'tpope/vim-endwise'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-surround'
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/syntastic'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'pangloss/vim-javascript'
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'jbohren-forks/vim-gitgutter'
-Plugin 'slim-template/vim-slim'
-Plugin 'junegunn/vim-easy-align'
-Plugin 'tpope/vim-rails'
+  " Required:
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
 
-call vundle#end()
+" Required:
+call neobundle#begin(expand('~/.vim/bundle'))
+
+" Let NeoBundle manage NeoBundle
+" Required:
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+" Add or remove your Bundles here:
+NeoBundle 'Shougo/vimproc.vim', {
+      \ 'build' : {
+      \     'windows' : 'tools\\update-dll-mingw',
+      \     'cygwin' : 'make -f make_cygwin.mak',
+      \     'mac' : 'make -f make_mac.mak',
+      \     'linux' : 'make',
+      \     'unix' : 'gmake',
+      \    },
+      \ }
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'godlygeek/tabular'
+NeoBundle 'bling/vim-airline'
+NeoBundle 'tpope/vim-endwise'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'tpope/vim-surround'
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'scrooloose/syntastic'
+NeoBundle 'scrooloose/nerdcommenter'
+NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'terryma/vim-multiple-cursors'
+NeoBundle 'jbohren-forks/vim-gitgutter'
+NeoBundle 'slim-template/vim-slim'
+NeoBundle 'junegunn/vim-easy-align'
+NeoBundle 'tpope/vim-rails'
+
+" You can specify revision/branch/tag.
+NeoBundle 'Shougo/vimshell'
+
+" Required:
+call neobundle#end()
+
+" Required:
 filetype plugin indent on
-filetype indent on          " load filetype-specific indent files
+
+" If there are uninstalled bundles found on startup,
+" this will conveniently prompt you to install them.
+NeoBundleCheck
+"End NeoBundle Scripts-------------------------
 
 
 " Standard settings "
@@ -55,15 +85,15 @@ set laststatus=2
 set fillchars+=vert:\ 
 set cc=121
 set textwidth=80
+set wrapmargin=0
 set backspace=indent,eol,start
 
 " Custom settings "
 """""""""""""""""""
+" Unite mappings
+nnoremap <C-p> :Unite file_rec/async<cr>
+nnoremap <C-f> :Unite grep:.<cr>
 
-" Ctrl-P
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-let g:NERDTreeWinSize = 42
 
 " Powerline font support
 let g:airline_powerline_fonts = 1
@@ -100,13 +130,6 @@ if exists(":Tabularize")
   vmap <Leader>a= :Tabularize /=<CR>
 endif
 
-" CtrlP settings
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
-let g:ctrlp_custom_ignore = '\v[\/](node_modules)$'
-let g:ctrlp_prompt_mappings = {
-    \ 'AcceptSelection("e")': ['<c-t>'],
-    \ 'AcceptSelection("t")': ['<cr>', '<2-LeftMouse>'],
-    \ }
 
 " Gitgutter
 highlight clear SignColumn
