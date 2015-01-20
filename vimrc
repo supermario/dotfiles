@@ -101,6 +101,9 @@ let g:airline_powerline_fonts = 1
 " Custom Mappings "
 """""""""""""""""""
 
+" One less keystroke!
+map ; :
+
 map Y y$
 
 " Ctrl-c/x to copy/cut
