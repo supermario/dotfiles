@@ -85,7 +85,7 @@ set listchars=tab:=»,trail:·
 set laststatus=2
 set fillchars+=vert:\ 
 set cc=121
-set textwidth=80
+set textwidth=0
 set wrapmargin=0
 set backspace=indent,eol,start
 
