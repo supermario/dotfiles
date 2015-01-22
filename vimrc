@@ -40,6 +40,7 @@ NeoBundle 'jbohren-forks/vim-gitgutter'
 NeoBundle 'slim-template/vim-slim'
 NeoBundle 'junegunn/vim-easy-align'
 NeoBundle 'tpope/vim-rails'
+NeoBundle 'kien/ctrlp.vim'
 
 " You can specify revision/branch/tag.
 NeoBundle 'Shougo/vimshell'
@@ -91,8 +92,25 @@ set backspace=indent,eol,start
 " Custom settings "
 """""""""""""""""""
 " Unite mappings
-nnoremap <C-p> :Unite file_rec/async<cr>
+nnoremap <C-o> :Unite file_rec/async<cr>
 nnoremap <C-f> :Unite grep:.<cr>
+nnoremap <C-b> :Unite buffer<cr>
+
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
+nnoremap <leader>r :<C-u>Unite -start-insert file_rec/async:!<CR>
+
+
+" Some Ctrlp settings until Unite takes over
+" Ctrl-P
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+" CtrlP settings
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+let g:ctrlp_custom_ignore = '\v[\/](node_modules)$'
+let g:ctrlp_prompt_mappings = {
+    \ 'AcceptSelection("e")': ['<c-t>'],
+    \ 'AcceptSelection("t")': ['<cr>', '<2-LeftMouse>'],
+    \ }
 
 
 " Powerline font support
@@ -103,6 +121,7 @@ let g:airline_powerline_fonts = 1
 
 " One less keystroke!
 map ; :
+map ;; ;
 
 map Y y$
 
