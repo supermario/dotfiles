@@ -86,6 +86,7 @@ eval "$(direnv hook zsh)"
 # Extend git plugin with 'gs' as 'gst' is an unecessary letter longer
 alias gs='git status'
 compdef _git gs=git-status
+alias gl='git log --oneline --decorate --color'
 
 # Git files changed (since fork from master)
 alias gfc='git --no-pager diff --name-status origin/master..HEAD'
