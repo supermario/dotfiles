@@ -95,7 +95,7 @@ alias gfc='git --no-pager diff --name-status origin/master..HEAD'
 ## Project aliases (these have project-specific dependencies)
 
 # Run rubocop for all new/modified files
-alias rc="gfc | grep -v -e '^\s*[DR]' | awk '{print \$2}' | grep -e 'rb$' | xargs rubocop -a"
+alias rc="gfc | grep -v -e '^\s*[DR]' | awk '{print \$2}' | grep -e 'rb$' | xargs rubocop --rails -a"
 
 alias rdbm='rake db:migrate'
 alias rdbmt='rake db:migrate RAILS_ENV=test'
