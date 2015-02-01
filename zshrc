@@ -88,9 +88,11 @@ alias gs='git status'
 compdef _git gs=git-status
 alias gl='git log --oneline --decorate --color'
 
-# Git files changed (since fork from master)
-alias gfc='git --no-pager diff --name-status origin/master..HEAD'
+# Commit where we forked from master
+alias gmbm='git merge-base HEAD origin/master'
 
+# Git files changed (since fork from master)
+alias gfc="git --no-pager diff --name-status \`gmbm\`"
 
 ## Project aliases (these have project-specific dependencies)
 
@@ -101,7 +103,12 @@ alias rdbm='rake db:migrate'
 alias rdbmt='rake db:migrate RAILS_ENV=test'
 
 # Rails tests changed
-alias rtc="git --no-pager diff --name-only origin/master..HEAD | grep -e '/\w*spec.rb'"
+alias rtc="git --no-pager diff --name-only \`gmbm\` | grep -e 'spec\.rb\|\.feature'"
+
+alias rtcs="rtc | grep 'spec.rb'"
 
 # Run rspec for all new/modified spec files since origin/master
-alias rt="rtc; rspec \`rtc\`"
+alias rt="rtcs; rspec \`rtcs\`"
+
+# Run all spec/features new/modified since origin/master
+alias rta="rtc; rspec \`rtc\`"
