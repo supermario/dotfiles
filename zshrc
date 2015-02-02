@@ -94,6 +94,9 @@ alias gmbm='git merge-base HEAD origin/master'
 # Git files changed (since fork from master)
 alias gfc="git --no-pager diff --name-status \`gmbm\`"
 
+# Hard reset to origin/master
+alias grom='git fetch origin && git reset --hard origin/master'
+
 ## Project aliases (these have project-specific dependencies)
 
 # Run rubocop for all new/modified files
@@ -104,7 +107,7 @@ alias rdbmt='rake db:migrate RAILS_ENV=test'
 
 # Rails tests changed
 alias rtc="git --no-pager diff --name-only \`gmbm\` | grep -e 'spec\.rb\|\.feature'"
-
+# Rails tests changed specs only
 alias rtcs="rtc | grep 'spec.rb'"
 
 # Run rspec for all new/modified spec files since origin/master
