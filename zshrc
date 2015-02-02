@@ -95,7 +95,7 @@ alias gmbm='git merge-base HEAD origin/master'
 alias gfc="git --no-pager diff --name-status \`gmbm\`"
 
 # Hard reset to origin/master
-alias grom='git fetch origin && git reset --hard origin/master'
+alias grhom='git fetch origin && git reset --hard origin/master'
 
 ## Project aliases (these have project-specific dependencies)
 
