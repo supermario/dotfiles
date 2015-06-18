@@ -83,6 +83,9 @@ source $ZSH/oh-my-zsh.sh
 eval "$(rbenv init -)"
 eval "$(direnv hook zsh)"
 
+# Alias docker-compose to dc
+alias dc='docker-compose'
+
 # Extend git plugin with 'gs' as 'gst' is an unecessary letter longer
 alias gs='git status'
 compdef _git gs=git-status
@@ -98,6 +101,12 @@ alias gfc="git --no-pager diff --name-status \`gmbm\`"
 alias grhom='git fetch origin && git reset --hard origin/master'
 
 ## Project aliases (these have project-specific dependencies)
+
+# Run rails server
+alias rs='rails s'
+
+# Run rails console
+alias rc='rails c'
 
 # Run rubocop for all new/modified files
 alias rc="gfc | grep -v -e '^\s*[DR]' | awk '{print \$2}' | grep -e 'rb$' | xargs rubocop --rails -a"
