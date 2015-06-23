@@ -41,6 +41,7 @@ NeoBundle 'slim-template/vim-slim'
 NeoBundle 'junegunn/vim-easy-align'
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'kien/ctrlp.vim'
+NeoBundle 'kchmck/vim-coffee-script'
 
 " You can specify revision/branch/tag.
 NeoBundle 'Shougo/vimshell'
