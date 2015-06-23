@@ -100,6 +100,9 @@ alias gfc="git --no-pager diff --name-status \`gmbm\`"
 # Hard reset to origin/master
 alias grhom='git fetch origin && git reset --hard origin/master'
 
+# Git checkout patch
+alias gcp='git checkout -p'
+
 ## Project aliases (these have project-specific dependencies)
 
 # Run rails server
