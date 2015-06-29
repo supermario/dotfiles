@@ -94,8 +94,11 @@ alias gl='git log --oneline --decorate --color'
 # Commit where we forked from master
 alias gmbm='git merge-base HEAD origin/master'
 
-# Git files changed (since fork from master)
+# Git files changed/added/removed (since fork from master)
 alias gfc="git --no-pager diff --name-status \`gmbm\`"
+
+# Git files new/modified only (since fork from master)
+alias gfcnm="gfc | grep -v -e '^\s*[DR]' | awk '{print \$2}'"
 
 # Hard reset to origin/master
 alias grhom='git fetch origin && git reset --hard origin/master'
@@ -112,13 +115,13 @@ alias rs='rails s'
 alias rc='rails c'
 
 # Run rubocop for all new/modified files
-alias rc="gfc | grep -v -e '^\s*[DR]' | awk '{print \$2}' | grep -e 'rb$' | xargs rubocop --rails -a"
+alias rc="gfcnm | grep -e 'rb$' | xargs rubocop --rails -a"
 
 alias rdbm='rake db:migrate'
 alias rdbmt='rake db:migrate RAILS_ENV=test'
 
 # Rails tests changed
-alias rtc="git --no-pager diff --name-only \`gmbm\` | grep -e 'spec\.rb\|\.feature'"
+alias rtc="gfcnm | grep -e 'spec\.rb\|\.feature'"
 # Rails tests changed specs only
 alias rtcs="rtc | grep 'spec.rb'"
 
