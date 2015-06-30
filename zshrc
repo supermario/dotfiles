@@ -115,7 +115,7 @@ alias rs='rails s'
 alias rc='rails c'
 
 # Run rubocop for all new/modified files
-alias rc="gfcnm | grep -e 'rb$' | xargs rubocop --rails -a"
+alias rc="gfcnm | grep -e 'rb$' | xargs rubocop --rails -aD"
 
 alias rdbm='rake db:migrate'
 alias rdbmt='rake db:migrate RAILS_ENV=test'
