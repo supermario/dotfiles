@@ -98,7 +98,7 @@ alias gmbm='git merge-base HEAD origin/master'
 alias gfc="git --no-pager diff --name-status \`gmbm\`"
 
 # Git files new/modified only (since fork from master)
-alias gfcnm="gfc | grep -v -e '^\s*[DR]' | awk '{print \$2}'"
+alias gfcnm="git diff --diff-filter=AM --name-only \`gmbm\`"
 
 # Hard reset to origin/master
 alias grhom='git fetch origin && git reset --hard origin/master'
