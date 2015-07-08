@@ -23,6 +23,7 @@
       - imagemagick
       - libxml2
       - libyaml
+      - lunchy
       - memcached
       - modules
       - ncdu
