@@ -114,6 +114,9 @@ alias rs='rails s'
 # Run rails console
 alias rc='rails c'
 
+# Run rake routes & grep
+function rrg() { rake routes | grep $@ }
+
 # Run rubocop for all new/modified files with autocorrect
 alias rc="gfcnm | grep -e 'rb$' | xargs rubocop --rails -aD"
 
