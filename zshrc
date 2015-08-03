@@ -118,7 +118,7 @@ alias rc='rails c'
 function rrg() { rake routes | grep $@ }
 
 # Run rubocop for all new/modified files with autocorrect
-alias rc="gfcnm | grep -e 'rb$' | xargs rubocop --rails -aD"
+alias rc="gfcnm | grep -e 'rb$' | xargs bundle exec rubocop --rails -aD"
 
 alias rdbm='rake db:migrate'
 alias rdbmt='rake db:migrate RAILS_ENV=test'
