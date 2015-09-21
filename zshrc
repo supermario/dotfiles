@@ -96,6 +96,10 @@ alias gs='git status'
 compdef _git gs=git-status
 alias gl='git log --oneline --decorate --color'
 
+# These alias disappeared from git plugin...?
+alias gap='git add -p'
+alias gdc='git diff --cached'
+
 # Commit where we forked from master
 alias gmbm='git merge-base HEAD origin/master'
 
@@ -110,6 +114,9 @@ alias grhom='git fetch origin && git reset --hard origin/master'
 
 # Git checkout patch
 alias gcp='git checkout -p'
+
+# Hub PR
+alias hpr='hub pull-request'
 
 ## Project aliases (these have project-specific dependencies)
 
