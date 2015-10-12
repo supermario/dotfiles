@@ -87,6 +87,8 @@ source $(brew --prefix nvm)/nvm.sh
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
+# Alias sublime to the simpler to type 'lime'
+alias lime='subl'
 
 # Alias docker-compose to dc
 alias dc='docker-compose'
