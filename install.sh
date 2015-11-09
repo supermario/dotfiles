@@ -37,13 +37,13 @@ fi
 gem install git-up lunchy
 
 # Postgres
-cp /usr/local/Cellar/postgresql/9.4.4/homebrew.mxcl.postgresql.plist ~/Library/LaunchAgents
+cp /usr/local/Cellar/postgresql/9.4.5/homebrew.mxcl.postgresql.plist ~/Library/LaunchAgents
 lunchy start postgres
 createuser -s -w postgres
 
 # Memcached
 cp /usr/local/Cellar/memcached/1.4.24/homebrew.mxcl.memcached.plist  ~/Library/LaunchAgents
-lunchy start postgres
+lunchy start memcached
 
 # Install neobundle
 curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh > neobundle.sh
