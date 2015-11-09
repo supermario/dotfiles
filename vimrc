@@ -126,9 +126,9 @@ map ;; ;
 
 map Y y$
 
-" Ctrl-c/x to copy/cut
-vmap <C-x> :!pbcopy<CR>
-vmap <C-c> :w !pbcopy<CR><CR>
+" System's clipboard integration
+map <leader>p "+p
+map <leader>y "+y
 
 " NerdTree plugin
 nmap <leader>f :NERDTreeToggle
