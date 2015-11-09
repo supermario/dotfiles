@@ -102,6 +102,9 @@ alias gl='git log --oneline --decorate --color'
 alias gap='git add -p'
 alias gdc='git diff --cached'
 
+# Colored word-diff, for differences between long lines, i.e. cdiff <file1> <file2>
+alias cdiff='wdiff -w "$(tput bold;tput setaf 1)" -x "$(tput sgr0)" -y "$(tput bold;tput setaf 2)" -z "$(tput sgr0)"'
+
 # Commit where we forked from master
 alias gmbm='git merge-base HEAD origin/master'
 
