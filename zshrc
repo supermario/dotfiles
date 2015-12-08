@@ -129,7 +129,7 @@ alias hpr='hub pull-request'
 ## Project aliases (these have project-specific dependencies)
 
 # Run rails server
-alias rs='rails s'
+alias rs='rails s -b 0.0.0.0'
 
 # Run rails console
 alias rc='rails c'
