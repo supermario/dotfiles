@@ -120,6 +120,9 @@ alias grhom='git fetch origin && git reset --hard origin/master'
 # Git checkout patch
 alias gcp='git checkout -p'
 
+# Git push all remotes
+alias gpa='gr | xargs -L1 git push'
+
 # Hub PR
 alias hpr='hub pull-request'
 
