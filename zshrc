@@ -82,6 +82,9 @@ source $ZSH/oh-my-zsh.sh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 eval "$(direnv hook zsh)"
 
+export PATH="$PATH:$HOME/.local/bin" # Stack binaries
+export PATH="$PATH:$HOME/.cabal/bin" # Cabal binaries
+
 export NVM_DIR=~/.nvm
 source $(brew --prefix nvm)/nvm.sh
 
