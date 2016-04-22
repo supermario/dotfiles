@@ -84,7 +84,7 @@ set shiftwidth=2
 set list " Show `listchars` characters
 set listchars=tab:=»,trail:·
 set laststatus=2
-set fillchars+=vert:\ 
+set fillchars+=vert:\
 set cc=121
 set textwidth=0
 set wrapmargin=0

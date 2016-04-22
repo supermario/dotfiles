@@ -129,19 +129,22 @@ alias gpa='gr | xargs -L1 git push'
 # Hub PR
 alias hpr='hub pull-request'
 
+# delete merged git branches
+alias gdm='git branch --merged | grep -v "\*" | xargs -n 1 git branch -d'
+
 ## Project aliases (these have project-specific dependencies)
+
+# rails project clean
+alias rpc='rake clobber && git clean -fd && git-delete-merged'
 
 # Run rails server
 alias rs='rails s -b 0.0.0.0'
-
-# Run rails console
-alias rc='rails c'
 
 # Run rake routes & grep
 function rrg() { rake routes | grep $@ }
 
 # Run rubocop for all new/modified files with autocorrect
-alias rc="gfcnm | grep -e 'rb$' | xargs bundle exec rubocop --rails -aD"
+alias rc="gfcnm | grep -e 'rb$' | grep -v 'schema' | xargs bundle exec rubocop --rails -aD"
 
 alias rdbm='rake db:migrate'
 alias rdbmt='rake db:migrate RAILS_ENV=test'
