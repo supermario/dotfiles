@@ -40,7 +40,11 @@
 
   # list aliases
   la = "!git config -l | grep alias | cut -c 7-"
+
+  # maybe when this works...
+  # up = pull --rebase --autostash
 [push]
   default = current
 [core]
 	editor = /usr/local/bin/vim
+	ignorecase = false

@@ -120,6 +120,9 @@ alias gfcnm="git diff --diff-filter=AM --name-only \`gmbm\`"
 # Hard reset to origin/master
 alias grhom='git fetch origin && git reset --hard origin/master'
 
+# Git commit ammend
+alias gca='git commit --amend'
+
 # Git checkout patch
 alias gcp='git checkout -p'
 

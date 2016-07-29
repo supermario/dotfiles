@@ -1,6 +1,15 @@
 {
 	"color_scheme": "Packages/Solarized Color Scheme/Solarized (Dark).tmTheme",
 	"ensure_newline_at_eof_on_save": true,
+	"folder_exclude_patterns":
+	[
+		".svn",
+		".git",
+		".hg",
+		"tmp",
+		"node_modules",
+		".sass-cache"
+	],
 	"font_size": 14,
 	"ignored_packages":
 	[
@@ -12,6 +21,5 @@
 	"tab_size": 2,
 	"theme": "Soda Dark 3.sublime-theme",
 	"translate_tabs_to_spaces": true,
-	"trim_trailing_white_space_on_save": true,
-	"folder_exclude_patterns": [".svn", ".git", ".hg", "tmp", "node_modules", ".sass-cache"]
+	"trim_trailing_white_space_on_save": true
 }
