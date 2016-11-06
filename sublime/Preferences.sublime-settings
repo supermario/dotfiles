@@ -8,7 +8,9 @@
 		".hg",
 		"tmp",
 		"node_modules",
-		".sass-cache"
+		".sass-cache",
+		".stack-work",
+		"elm-stuff"
 	],
 	"font_size": 14,
 	"ignored_packages":
