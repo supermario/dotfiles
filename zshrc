@@ -162,3 +162,11 @@ alias rt="rtcs; rspec \`rtcs\`"
 
 # Run all spec/features new/modified since origin/master
 alias rta="rtc; rspec \`rtc\`"
+
+# List processes listening on a given port, i.e. `port 8081`
+function port() {
+  lsof -n -i4TCP:$@ | grep LISTEN
+  lsof -n -iTCP:$@ | grep LISTEN
+  lsof -n -i:$@ | grep LISTEN
+}
+
