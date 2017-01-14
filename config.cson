@@ -12,8 +12,10 @@
     ]
     useCustomTitleBar: true
   editor:
-    fontSize: 16
+    fontFamily: "Hasklig-Medium"
+    fontSize: 17
     invisibles: {}
+    lineHeight: 1.2
     scrollPastEnd: true
   "elm-format":
     binary: "/Users/mario/.local/bin/elm-format"
@@ -21,6 +23,7 @@
     userId: "10a85c99-a453-6723-103f-51722f743240"
   "ide-haskell-repl":
     defaultRepl: "stack"
+  "letter-spacing": {}
   "linter-elm-make": {}
   welcome:
     showOnStartup: false
