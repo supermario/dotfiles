@@ -1,4 +1,3 @@
-# Atom Config
 "*":
   core:
     disabledPackages: [
