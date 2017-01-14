@@ -1,0 +1,29 @@
+# Atom Config
+"*":
+  core:
+    disabledPackages: [
+      "api-workbench"
+      "goto-definition"
+      "goto"
+    ]
+    telemetryConsent: "limited"
+    themes: [
+      "one-dark-ui"
+      "solarized-dark-syntax"
+    ]
+    useCustomTitleBar: true
+  editor:
+    fontSize: 16
+    invisibles: {}
+    scrollPastEnd: true
+  "elm-format":
+    binary: "/Users/mario/.local/bin/elm-format"
+  "exception-reporting":
+    userId: "10a85c99-a453-6723-103f-51722f743240"
+  "ide-haskell-repl":
+    defaultRepl: "stack"
+  "linter-elm-make": {}
+  welcome:
+    showOnStartup: false
+  whitespace:
+    ignoreWhitespaceOnCurrentLine: false
