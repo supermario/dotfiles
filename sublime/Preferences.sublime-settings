@@ -12,10 +12,9 @@
 		".stack-work",
 		"elm-stuff"
 	],
-	"font_size": 14,
+	"font_size": 16,
 	"ignored_packages":
 	[
-		"Vintage",
 		"Vintageous"
 	],
 	"line_numbers": true,
