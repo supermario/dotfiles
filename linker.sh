@@ -1,5 +1,6 @@
 
-ln -s config.cson ~/.atom/config.cson
+ln -s `pwd`/config.cson ~/.atom/config.cson
+ln -s `pwd`/haskell-format /usr/local/bin/haskell-format
 
 # @TODO Ideal logic pseudocode
 # check if file exists

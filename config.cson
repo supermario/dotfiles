@@ -21,10 +21,24 @@
     binary: "/Users/mario/.local/bin/elm-format"
   "exception-reporting":
     userId: "10a85c99-a453-6723-103f-51722f743240"
+  "ide-haskell":
+    expressionTypeInterval: 500
+    onCursorMove: "Hide Tooltip"
+    onSavePrettify: true
+    panelAutoHide: true
+    stylishHaskellArguments: [
+      "--style"
+      "johan-tibell"
+      "--line-length"
+      "88"
+    ]
+    stylishHaskellPath: "haskell-format"
   "ide-haskell-repl":
     defaultRepl: "stack"
   "letter-spacing": {}
   "linter-elm-make": {}
+  "one-dark-ui":
+    layoutMode: "Compact"
   welcome:
     showOnStartup: false
   whitespace:
