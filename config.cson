@@ -6,10 +6,6 @@
       "goto"
     ]
     telemetryConsent: "limited"
-    themes: [
-      "one-dark-ui"
-      "solarized-dark-syntax"
-    ]
     useCustomTitleBar: true
   editor:
     fontFamily: "Hasklig-Medium"
@@ -22,10 +18,10 @@
   "exception-reporting":
     userId: "10a85c99-a453-6723-103f-51722f743240"
   "ide-haskell":
+    autoHideOutput: true
     expressionTypeInterval: 500
     onCursorMove: "Hide Tooltip"
     onSavePrettify: true
-    panelAutoHide: true
     stylishHaskellArguments: [
       "--style"
       "johan-tibell"
