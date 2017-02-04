@@ -163,6 +163,9 @@ alias rt="rtcs; rspec \`rtcs\`"
 # Run all spec/features new/modified since origin/master
 alias rta="rtc; rspec \`rtc\`"
 
+# Open up Haskell test project
+alias ht="atom ~/test/haskelltest"
+
 # List processes listening on a given port, i.e. `port 8081`
 function port() {
   lsof -n -i4TCP:$@ | grep LISTEN
