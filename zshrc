@@ -132,6 +132,9 @@ alias gpa='gr | xargs -L1 git push'
 # Hub PR
 alias hpr='hub pull-request'
 
+# Show all git TODO/FIXME
+alias gt='git grep -EI "TODO|FIXME"'
+
 # delete merged git branches
 alias gdm='git branch --merged | grep -v "\*" | xargs -n 1 git branch -d'
 

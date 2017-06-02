@@ -48,3 +48,5 @@
 [core]
 	editor = /usr/local/bin/vim
 	ignorecase = false
+[pager]
+	grep = false
