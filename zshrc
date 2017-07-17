@@ -90,6 +90,9 @@ source $(brew --prefix nvm)/nvm.sh
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
+# Alias vim to nvim
+alias vim='nvim'
+
 # Alias sublime to the simpler to type 'lime'
 alias lime='subl'
 

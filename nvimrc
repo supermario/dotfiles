@@ -19,16 +19,26 @@ endif
 call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+let g:fzf_action = {
+      \ 'ctrl-s': 'split',
+      \ 'ctrl-v': 'vsplit'
+      \ }
+nnoremap <c-p> :FZF<cr>
+
+
 Plug 'vim-airline/vim-airline'
 
 " Improved syntax hilighting, required for themes to look sensible. Requires `syntax on`
 Plug 'sheerun/vim-polyglot'
 
 " https://github.com/ndmitchell/ghcid/tree/master/plugins/nvim
+" Very fast haskell syntax checking
 Plug 'ndmitchell/ghcid', { 'rtp': 'plugins/nvim' }
 
 " Solarised theme fixed for truecolor
 Plug 'joshdick/onedark.vim'
+
+Plug 'terryma/vim-multiple-cursors'
 
 
 " Initialize plugin system
