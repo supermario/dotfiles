@@ -169,6 +169,9 @@ alias rta="rtc; rspec \`rtc\`"
 # Open up Haskell test project
 alias ht="atom ~/test/haskelltest"
 
+# Navigate to ap project
+alias ap="cd ~/dev/projects/ap"
+
 # List processes listening on a given port, i.e. `port 8081`
 function port() {
   lsof -n -i4TCP:$@ | grep LISTEN
