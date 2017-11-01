@@ -1,40 +1,72 @@
 "*":
+  "atom-ide-ui":
+    "atom-ide-datatip":
+      datatipDebounceDelay: 1
+      datatipInteractedWithDebounceDelay: 1
+    "atom-ide-diagnostics-ui":
+      autoVisibility: true
+  "auto-detect-indentation": {}
   core:
+    automaticallyUpdate: false
     disabledPackages: [
       "api-workbench"
       "goto-definition"
-      "goto"
+      "linter"
+      "language-clojure"
+      "language-csharp"
+      "language-coffee-script"
+      "language-c"
+      "language-go"
+      "language-java"
+      "language-mustache"
+      "language-objective-c"
+      "language-perl"
+      "language-php"
+      "language-property-list"
+      "language-python"
+      "language-sass"
+      "language-toml"
+      "language-typescript"
+      "elm-navigator"
+      "visual-indent"
     ]
     telemetryConsent: "limited"
-    useCustomTitleBar: true
+    titleBar: "custom"
   editor:
     fontFamily: "Hasklig-Medium"
-    fontSize: 17
     invisibles: {}
     lineHeight: 1.2
     scrollPastEnd: true
   "elm-format":
-    binary: "/Users/mario/.local/bin/elm-format"
+    binary: "/Users/mario/.nvm/versions/node/v8.6.0/bin/elm-format"
+  elmjutsu:
+    autocompleteSnippetsEnabled: true
+    cacheDirectory: "/var/folders/kq/xl7p09mj7w3cy403_kfb8y9w0000gn/T/elmjutsu5688452MSW8vaP10g"
+    globalAutocompleteEnabled: true
   "exception-reporting":
     userId: "10a85c99-a453-6723-103f-51722f743240"
+  "haskell-ghc-mod": {}
   "ide-haskell":
     autoHideOutput: true
     expressionTypeInterval: 500
     onCursorMove: "Hide Tooltip"
     onSavePrettify: true
-    stylishHaskellArguments: [
-      "--style"
-      "johan-tibell"
-      "--line-length"
-      "88"
-    ]
     stylishHaskellPath: "haskell-format"
   "ide-haskell-repl":
     defaultRepl: "stack"
+  "language-elm":
+    autocompleteEnabled: false
   "letter-spacing": {}
+  linter: {}
   "linter-elm-make": {}
-  "one-dark-ui":
-    layoutMode: "Compact"
+  "linter-ui-default":
+    panelHeight: 224
+  "markdown-preview":
+    openPreviewInSplitPane: false
+    useGitHubStyle: true
+  "one-dark-ui": {}
+  tabs:
+    alwaysShowTabBar: false
   welcome:
     showOnStartup: false
   whitespace:
