@@ -1,1 +1,3 @@
-hindent $* | stylish-haskell
+#!/bin/bash
+# hindent --style gibiansky $* | stylish-haskell
+brittany
