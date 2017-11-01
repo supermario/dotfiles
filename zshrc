@@ -169,6 +169,9 @@ alias rt="rtcs; rspec \`rtcs\`"
 # Run all spec/features new/modified since origin/master
 alias rta="rtc; rspec \`rtc\`"
 
+# Run elm-reactor
+alias er='elm-reactor'
+
 # Open up Haskell test project
 alias ht="atom ~/test/haskelltest"
 
@@ -182,3 +185,8 @@ function port() {
   lsof -n -i:$@ | grep LISTEN
 }
 
+
+# Meta
+
+# Edit dotfiles
+alias dotfiles='atom ~/dev/projects/dotfiles'
