@@ -178,6 +178,9 @@ alias ht="atom ~/test/haskelltest"
 # Navigate to ap project
 alias ap="cd ~/dev/projects/ap"
 
+# make build
+alias mb="make build"
+
 # List processes listening on a given port, i.e. `port 8081`
 function port() {
   lsof -n -i4TCP:$@ | grep LISTEN
@@ -189,4 +192,4 @@ function port() {
 # Meta
 
 # Edit dotfiles
-alias dotfiles='atom ~/dev/projects/dotfiles'
+alias dotfiles='cd ~/dev/projects/dotfiles && atom .'
