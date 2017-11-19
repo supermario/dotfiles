@@ -1,7 +1,6 @@
 "*":
   "atom-ide-ui":
     "atom-ide-datatip":
-      datatipDebounceDelay: 1
       datatipInteractedWithDebounceDelay: 1
     "atom-ide-diagnostics-ui":
       autoVisibility: true
@@ -45,7 +44,9 @@
     globalAutocompleteEnabled: true
   "exception-reporting":
     userId: "10a85c99-a453-6723-103f-51722f743240"
-  "haskell-ghc-mod": {}
+  "haskell-ghc-mod":
+    alwaysInteractiveCheck: false
+    cabalSandbox: false
   "ide-haskell":
     autoHideOutput: true
     expressionTypeInterval: 500
