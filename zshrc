@@ -193,3 +193,6 @@ function port() {
 
 # Edit dotfiles
 alias dotfiles='cd ~/dev/projects/dotfiles && atom .'
+
+# Ping test
+alias pt='ping google.com'
