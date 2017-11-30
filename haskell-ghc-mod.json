@@ -1,0 +1,6 @@
+{
+  "disable": false,
+  "suppressErrors": false,
+  "ghcOptions": ["-fno-warn-orphans","-fno-warn-unused-matches","-fno-warn-name-shadowing -ddump-splices"],
+  "ghcModOptions": []
+}
