@@ -172,6 +172,21 @@ alias rta="rtc; rspec \`rtc\`"
 # Run elm-reactor
 alias er='elm-reactor'
 
+# Set elm-format to 2 spaced binary
+alias ef2='echo "elm-format-0.18 --stdin" > /Users/mario/.local/bin/elm-format'
+
+# Set elm-format to 4 spaced binary
+alias ef4='echo "elm-format-exp-0.18 --stdin" > /Users/mario/.local/bin/elm-format'
+
+# Set haskell formats. Prior was this;
+# hindent --style gibiansky $* | stylish-haskell
+
+# Set haskell-format to brittany
+alias hfb='echo "brittany" > /Users/mario/dev/projects/dotfiles/haskell-format'
+
+# Set haskell-format to none
+alias hfn='echo "cat" > /Users/mario/dev/projects/dotfiles/haskell-format'
+
 # Open up Haskell test project
 alias ht="atom ~/test/haskelltest"
 
