@@ -173,10 +173,10 @@ alias rta="rtc; rspec \`rtc\`"
 alias er='elm-reactor'
 
 # Set elm-format to 2 spaced binary
-alias ef2='echo "elm-format-0.18 --stdin" > /Users/mario/.local/bin/elm-format'
+alias ef2='cd /Users/mario/.local/bin/ && rm elm-format && ln -s elm-format-0.18 elm-format && cd -'
 
 # Set elm-format to 4 spaced binary
-alias ef4='echo "elm-format-exp-0.18 --stdin" > /Users/mario/.local/bin/elm-format'
+alias ef4='cd /Users/mario/.local/bin/ && rm elm-format && ln -s elm-format-exp-0.18 elm-format && cd -'
 
 # Set haskell formats. Prior was this;
 # hindent --style gibiansky $* | stylish-haskell
