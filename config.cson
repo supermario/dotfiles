@@ -22,22 +22,24 @@
       "language-perl"
       "language-php"
       "language-property-list"
-      "language-python"
       "language-sass"
       "language-toml"
-      "language-typescript"
       "elm-navigator"
       "visual-indent"
+      "resize-indent"
+      "elmjutsu"
+      "elm-lens"
     ]
     telemetryConsent: "limited"
     titleBar: "custom"
   editor:
     fontFamily: "Hasklig-Medium"
+    fontSize: 15
     invisibles: {}
     lineHeight: 1.2
     scrollPastEnd: true
   "elm-format":
-    binary: "/Users/mario/.local/bin/elm-format"
+    binary: "/Users/mario/.local/bin/elm-format-atom"
   elmjutsu:
     autocompleteSnippetsEnabled: true
     cacheDirectory: "/var/folders/kq/xl7p09mj7w3cy403_kfb8y9w0000gn/T/elmjutsu5688452MSW8vaP10g"
@@ -66,8 +68,19 @@
     openPreviewInSplitPane: false
     useGitHubStyle: true
   "one-dark-ui": {}
+  pigments:
+    extendAutocompleteToColorValue: true
+    extendAutocompleteToVariables: true
+    extendedSearchNames: [
+      "**/*.elm"
+    ]
+    groupPaletteColors: "by file"
+    sourceNames: [
+      "**/*.elm"
+    ]
   tabs:
     alwaysShowTabBar: false
+  "tree-view": {}
   welcome:
     showOnStartup: false
   whitespace:

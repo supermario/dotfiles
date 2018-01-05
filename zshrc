@@ -173,10 +173,13 @@ alias rta="rtc; rspec \`rtc\`"
 alias er='elm-reactor'
 
 # Set elm-format to 2 spaced binary
-alias ef2='cd /Users/mario/.local/bin/ && rm elm-format && ln -s elm-format-0.18 elm-format && cd -'
+alias ef2='cd /Users/mario/.local/bin/ && rm elm-format && ln -s elm-format-0.18-2spaced elm-format && cd -'
 
-# Set elm-format to 4 spaced binary
-alias ef4='cd /Users/mario/.local/bin/ && rm elm-format && ln -s elm-format-exp-0.18 elm-format && cd -'
+# Set elm-format to 4 spaced binary (@exp)
+alias ef4='cd /Users/mario/.local/bin/ && rm elm-format && ln -s elm-format-0.18-exp elm-format && cd -'
+
+# Set elm-format to general mainline elm-format
+alias efg='cd /Users/mario/.local/bin/ && rm elm-format && ln -s elm-format-0.18-0.6.1-alpha elm-format && cd -'
 
 # Set haskell formats. Prior was this;
 # hindent --style gibiansky $* | stylish-haskell
@@ -202,7 +205,6 @@ function port() {
   lsof -n -iTCP:$@ | grep LISTEN
   lsof -n -i:$@ | grep LISTEN
 }
-
 
 # Meta
 
