@@ -199,6 +199,9 @@ alias ap="cd ~/dev/projects/ap"
 # make build
 alias mb="make build"
 
+# List all stack LTS versions in use across top level of projects
+alias hlts="tree -L 2 -if ~/dev/projects | grep stack.yaml | xargs grep -E \"resolver\" -Rn"
+
 # List processes listening on a given port, i.e. `port 8081`
 function port() {
   lsof -n -i4TCP:$@ | grep LISTEN
