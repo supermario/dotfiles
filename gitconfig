@@ -48,5 +48,6 @@
 [core]
 	editor = /usr/local/bin/vim
 	ignorecase = false
+	excludesfile = ~/.gitignore
 [pager]
 	grep = false

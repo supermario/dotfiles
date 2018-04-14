@@ -4,9 +4,9 @@
       datatipInteractedWithDebounceDelay: 1
     "atom-ide-diagnostics-ui":
       autoVisibility: true
+    use: {}
   "auto-detect-indentation": {}
   core:
-    automaticallyUpdate: false
     disabledPackages: [
       "api-workbench"
       "goto-definition"
@@ -29,12 +29,13 @@
       "resize-indent"
       "elmjutsu"
       "elm-lens"
+      "haskell-ghc-mod"
+      "language-pug"
     ]
     telemetryConsent: "limited"
     titleBar: "custom"
   editor:
     fontFamily: "Hasklig-Medium"
-    fontSize: 15
     invisibles: {}
     lineHeight: 1.2
     scrollPastEnd: true
@@ -49,6 +50,7 @@
   "haskell-ghc-mod":
     alwaysInteractiveCheck: false
     cabalSandbox: false
+    debug: true
   "ide-haskell":
     autoHideOutput: true
     expressionTypeInterval: 500
@@ -63,7 +65,7 @@
   linter: {}
   "linter-elm-make": {}
   "linter-ui-default":
-    panelHeight: 224
+    panelHeight: 360
   "markdown-preview":
     openPreviewInSplitPane: false
     useGitHubStyle: true
