@@ -45,7 +45,7 @@ ZSH_THEME="min"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git heroku)
 
 # User configuration
 
@@ -180,6 +180,20 @@ alias ef4='cd /Users/mario/.local/bin/ && rm elm-format && ln -s elm-format-0.18
 
 # Set elm-format to general mainline elm-format
 alias efg='cd /Users/mario/.local/bin/ && rm elm-format && ln -s elm-format-0.18-0.6.1-alpha elm-format && cd -'
+
+# Set elm-format to general mainline elm-format
+alias ef19='cd /Users/mario/.local/bin/ && rm elm-format && ln -s elm-format-0.19 elm-format && cd -'
+
+
+# Set elm binary to 0.18 (installed by npm)
+alias e18='cd /Users/mario/.local/bin/ && rm elm && ln -s elm-0.18 elm && cd -'
+
+# Set elm binary to 0.19 alpha
+alias e19='cd /Users/mario/.local/bin/ && rm elm && ln -s elm-0.19 elm && cd -'
+
+# Set elm binary to 0.19 alpha
+alias ex='cd /Users/mario/.local/bin/ && rm elm && ln -s elmx elm && cd -'
+
 
 # Set haskell formats. Prior was this;
 # hindent --style gibiansky $* | stylish-haskell
