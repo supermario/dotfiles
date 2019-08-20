@@ -200,7 +200,7 @@ alias ap="cd ~/dev/projects/ap"
 alias mb="make build"
 
 # List all stack LTS versions in use across top level of projects
-alias hlts="tree -L 2 -if ~/dev/projects | grep stack.yaml | xargs grep -E \"resolver\" -Rn"
+alias hlts="tree -L 2 -if ~/dev/projects | grep stack.yaml | xargs grep -E \"^resolver\" -Rn && tree -L 2 -if ~/work | grep stack.yaml | xargs grep -E \"^resolver\" -Rn && ls -alh ~/.stack/snapshots/x86_64-osx"
 
 # List processes listening on a given port, i.e. `port 8081`
 function port() {
