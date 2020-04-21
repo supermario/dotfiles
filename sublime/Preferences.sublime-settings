@@ -12,7 +12,7 @@
 		".stack-work",
 		"elm-stuff"
 	],
-	"font_size": 15,
+	"font_size": 16,
 	"ignored_packages":
 	[
 		"SublimeHaskell",

@@ -1,6 +1,8 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
+export GOPATH=$HOME/go
+
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
@@ -121,7 +123,7 @@ alias gfc="git --no-pager diff --name-status \`gmbm\`"
 alias gfcnm="git diff --diff-filter=AM --name-only \`gmbm\`"
 
 # Hard reset to origin/master
-alias grhom='git fetch origin && git reset --hard origin/master'
+alias grhom='git fetch origin && git reset --hard origin/master && git submodule update --init --recursive'
 
 # Git commit ammend
 alias gca='git commit --amend'

@@ -27,10 +27,10 @@
       "elm-navigator"
       "visual-indent"
       "resize-indent"
-      "elmjutsu"
       "elm-lens"
       "haskell-ghc-mod"
       "language-pug"
+      "teletype"
     ]
     telemetryConsent: "limited"
     titleBar: "custom"
@@ -65,7 +65,7 @@
   linter: {}
   "linter-elm-make": {}
   "linter-ui-default":
-    panelHeight: 360
+    panelHeight: 319
   "markdown-preview":
     openPreviewInSplitPane: false
     useGitHubStyle: true
@@ -82,7 +82,8 @@
     ]
   tabs:
     alwaysShowTabBar: false
-  "tree-view": {}
+  "tree-view":
+    hideVcsIgnoredFiles: true
   welcome:
     showOnStartup: false
   whitespace:

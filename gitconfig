@@ -49,5 +49,6 @@
 	editor = /usr/local/bin/vim
 	ignorecase = false
 	excludesfile = ~/.gitignore
+	autocrlf = input
 [pager]
 	grep = false

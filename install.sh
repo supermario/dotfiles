@@ -15,9 +15,9 @@ sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/i
 link "${DOTFILES}/zshrc"     ".zshrc"
 link "${DOTFILES}/vimrc"     ".vimrc"
 link "${DOTFILES}/gitconfig" ".gitconfig"
-link "${DOTFILES}/tmux.conf" ".tmux.conf"
+#link "${DOTFILES}/tmux.conf" ".tmux.conf"
 
-link "${HOME}/Dropbox/dev"   "dev"
+#link "${HOME}/Dropbox/dev"   "dev"
 
 link "${DOTFILES}/min.zsh-theme"   ".oh-my-zsh/themes/min.zsh-theme"
 
@@ -34,17 +34,17 @@ if [[ ! -f ${SOLARIZED_VIM} ]]; then
 fi
 
 # Gems
-gem install git-up lunchy
+#gem install git-up lunchy
 
 # Postgres
-cp /usr/local/Cellar/postgresql/9.4.5/homebrew.mxcl.postgresql.plist ~/Library/LaunchAgents
-lunchy start postgres
-createuser -s -w postgres
+#cp /usr/local/Cellar/postgresql/9.4.5/homebrew.mxcl.postgresql.plist ~/Library/LaunchAgents
+#lunchy start postgres
+#createuser -s -w postgres
 
 # Memcached
-cp /usr/local/Cellar/memcached/1.4.24/homebrew.mxcl.memcached.plist  ~/Library/LaunchAgents
-lunchy start memcached
+#cp /usr/local/Cellar/memcached/1.4.24/homebrew.mxcl.memcached.plist  ~/Library/LaunchAgents
+#lunchy start memcached
 
 # Install neobundle
-curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh > neobundle.sh
-sh ./neobundle.sh
+#curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh > neobundle.sh
+#sh ./neobundle.sh

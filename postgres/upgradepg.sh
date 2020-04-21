@@ -12,8 +12,8 @@ brew services stop postgresql
 
 # Get current version numbers
 readarray -t versions <<< "$(ls -1 /usr/local/Cellar/postgresql/)"
-old="9.6.1"
-new="10.1"
+old="10"
+new="11.2"
 
 
 # @TODO should probably confirm at this point if we want to continue
