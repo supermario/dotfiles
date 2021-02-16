@@ -1,8 +1,6 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
-export GOPATH=$HOME/go
-
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
@@ -217,6 +215,11 @@ alias mb="make build"
 
 # List all stack LTS versions in use across top level of projects
 alias hlts="tree -L 2 -if ~/dev/projects | grep stack.yaml | xargs grep -E \"^resolver\" -Rn && tree -L 2 -if ~/work | grep stack.yaml | xargs grep -E \"^resolver\" -Rn && ls -alh ~/.stack/snapshots/x86_64-osx"
+
+# Stack aliases
+
+alias si="stack install"
+alias sg="stack ghci"
 
 # List processes listening on a given port, i.e. `port 8081`
 function port() {
