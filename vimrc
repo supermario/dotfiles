@@ -179,7 +179,5 @@ set rtp+=~/.fzf
 " EasyAlign
 vmap <Enter> <Plug>(EasyAlign)
 
-" 
+"
 autocmd filetype crontab setlocal nobackup nowritebackup
-
-

@@ -204,17 +204,11 @@ alias hfb='echo "brittany" > /Users/mario/dev/projects/dotfiles/haskell-format'
 # Set haskell-format to none
 alias hfn='echo "cat" > /Users/mario/dev/projects/dotfiles/haskell-format'
 
-# Open up Haskell test project
-alias ht="atom ~/test/haskelltest"
-
-# Navigate to ap project
-alias ap="cd ~/dev/projects/ap"
-
 # make build
 alias mb="make build"
 
 # List all stack LTS versions in use across top level of projects
-alias hlts="tree -L 2 -if ~/dev/projects | grep stack.yaml | xargs grep -E \"^resolver\" -Rn && tree -L 2 -if ~/work | grep stack.yaml | xargs grep -E \"^resolver\" -Rn && ls -alh ~/.stack/snapshots/x86_64-osx"
+alias hlts="tree -L 2 -if ~/dev/projects | grep stack.yaml | xargs grep -E \"^resolver\" -Rn && tree -L 2 -if ~/work | grep stack.yaml | xargs grep -E \"^resolver\" -Rn"
 
 # Stack aliases
 
