@@ -85,8 +85,15 @@ eval "$(direnv hook zsh)"
 export PATH="$PATH:$HOME/.local/bin" # Stack binaries
 export PATH="$PATH:$HOME/.cabal/bin" # Cabal binaries
 
-export NVM_DIR=~/.nvm
-source $(brew --prefix nvm)/nvm.sh
+
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
+# export NVM_DIR=~/.nvm
+# source $(brew --prefix nvm)/nvm.sh
+
+alias ibrew='arch -x86_64 /usr/local/bin/brew'
+
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
@@ -154,6 +161,7 @@ function rrg() { rake routes | grep $@ }
 
 # Run rubocop for all new/modified files with autocorrect
 alias rc="gfcnm | grep -e 'rb$' | grep -v 'schema' | xargs bundle exec rubocop --rails -aD"
+alias re="gfcnm | grep -e 'rb$' | grep -v 'schema' | xargs bundle exec reek"
 
 alias rdbm='rake db:migrate'
 alias rdbmt='rake db:migrate RAILS_ENV=test'
@@ -168,6 +176,8 @@ alias rt="rtcs; rspec \`rtcs\`"
 
 # Run all spec/features new/modified since origin/master
 alias rta="rtc; rspec \`rtc\`"
+
+alias rp="rta && rc && re"
 
 # Run elm-reactor
 alias er='elm-reactor'

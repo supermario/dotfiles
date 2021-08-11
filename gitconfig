@@ -46,7 +46,7 @@
 [push]
   default = current
 [core]
-	editor = /usr/local/bin/vim
+	editor = /opt/homebrew/bin/nvim
 	ignorecase = false
 	excludesfile = ~/.gitignore
 	autocrlf = input
