@@ -182,19 +182,6 @@ alias rp="rta && rc && re"
 # Run elm-reactor
 alias er='elm-reactor'
 
-# Set elm-format to 2 spaced binary
-alias ef2='cd /Users/mario/.local/bin/ && rm elm-format && ln -s elm-format-0.18-2spaced elm-format && cd -'
-
-# Set elm-format to 4 spaced binary (@exp)
-alias ef4='cd /Users/mario/.local/bin/ && rm elm-format && ln -s elm-format-0.18-exp elm-format && cd -'
-
-# Set elm-format to general mainline elm-format
-alias efg='cd /Users/mario/.local/bin/ && rm elm-format && ln -s elm-format-0.18-0.6.1-alpha elm-format && cd -'
-
-# Set elm-format to general mainline elm-format
-alias ef19='cd /Users/mario/.local/bin/ && rm elm-format && ln -s elm-format-0.19 elm-format && cd -'
-
-
 # Set elm binary to 0.18 (installed by npm)
 alias e18='cd /Users/mario/.local/bin/ && rm elm && ln -s elm-0.18 elm && cd -'
 
@@ -232,6 +219,22 @@ function port() {
   lsof -n -i:$@ | grep LISTEN
 }
 
+# Wifi helpers
+alias wu=' $(networksetup -setairportnetwork en0 "$upid" "$uppw") &'
+alias wd=' $(networksetup -setairportnetwork en0 "$downid" "$downpw") &'
+alias won=' networksetup -setairportpower en0 on &'
+alias woff=' networksetup -setairportpower en0 off &'
+
+# System theme
+function sd {
+  # same command for light and dark mode
+  osascript -e 'tell application "System Events" to tell appearance preferences to set dark mode to not dark mode'
+}
+function sl {
+  osascript -e 'tell application "System Events" to tell appearance preferences to set dark mode to not dark mode'
+}
+
+
 # Meta
 
 # Edit dotfiles
@@ -239,3 +242,18 @@ alias dotfiles='cd ~/dev/projects/dotfiles && atom .'
 
 # Ping test
 alias pt='ping google.com'
+
+
+
+# Project helpers
+
+alias ht="atom ~/test/haskelltest"
+alias ap="cd ~/dev/projects/ap"
+
+alias lc="cd ~/dev/projects/lamdera-compiler"
+
+
+alias lx="~/lamdera/scripts/lx.sh"
+alias metro="cd ~/dev/locomote/metro && coffee index.coffee"
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
