@@ -103,6 +103,8 @@ alias vim='nvim'
 # Alias sublime to the simpler to type 'lime'
 alias lime='subl'
 
+alias vsc='code-insiders'
+
 # Alias docker-compose to dc
 alias dc='docker-compose'
 
@@ -148,6 +150,10 @@ alias gt='git grep -EI "TODO|FIXME"'
 # delete merged git branches
 alias gdm='git branch --merged | grep -v "\*" | xargs -n 1 git branch -d'
 
+# Search reflog for given input
+function glf() { git log --graph --reflog --grep=$1 }
+
+
 ## Project aliases (these have project-specific dependencies)
 
 # rails project clean
@@ -176,6 +182,9 @@ alias rt="rtcs; rspec \`rtcs\`"
 
 # Run all spec/features new/modified since origin/master
 alias rta="rtc; rspec \`rtc\`"
+
+# Same as `rta` but fail fast, only failures
+alias rtaff="rtc; rspec --fail-fast --only-failures \`rtc\`"
 
 alias rp="rta && rc && re"
 
@@ -219,6 +228,13 @@ function port() {
   lsof -n -i:$@ | grep LISTEN
 }
 
+# Fast network switch helpers example
+
+upid="network 1 id"
+uppw="network 1 pass"
+downid="network 2 id"
+downpw="network 2 pass"
+
 # Wifi helpers
 alias wu=' $(networksetup -setairportnetwork en0 "$upid" "$uppw") &'
 alias wd=' $(networksetup -setairportnetwork en0 "$downid" "$downpw") &'
@@ -238,7 +254,7 @@ function sl {
 # Meta
 
 # Edit dotfiles
-alias dotfiles='cd ~/dev/projects/dotfiles && atom .'
+alias dotfiles='cd ~/dev/projects/dotfiles && vsc .'
 
 # Ping test
 alias pt='ping google.com'
@@ -247,13 +263,14 @@ alias pt='ping google.com'
 
 # Project helpers
 
-alias ht="atom ~/test/haskelltest"
-alias ap="cd ~/dev/projects/ap"
-
-alias lc="cd ~/dev/projects/lamdera-compiler"
-
+alias lc="cd ~/dev/projects/lamdera-compiler && vsc ."
+alias bento="cd ~/dev/projects/bento-life && vsc ."
 
 alias lx="~/lamdera/scripts/lx.sh"
-alias metro="cd ~/dev/locomote/metro && coffee index.coffee"
+alias metro="cd ~/work/locomote/metro && coffee index.coffee"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+export PATH="/usr/local/opt/libpq/bin:$PATH"
+export PATH="$HOME/.cabal/bin:$HOME/.ghcup/bin:$PATH"
+export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
