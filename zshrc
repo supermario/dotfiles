@@ -221,6 +221,10 @@ alias hlts="tree -L 2 -if ~/dev/projects | grep stack.yaml | xargs grep -E \"^re
 alias si="stack install"
 alias sg="stack ghci"
 
+# npm shortcuts with --legacy-peer-deps
+alias nil='npm i --legacy-peer-deps'
+
+
 # List processes listening on a given port, i.e. `port 8081`
 function port() {
   lsof -n -i4TCP:$@ | grep LISTEN
