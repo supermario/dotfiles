@@ -277,4 +277,4 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 
 export PATH="/usr/local/opt/libpq/bin:$PATH"
 export PATH="$HOME/.cabal/bin:$HOME/.ghcup/bin:$PATH"
-export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
+export PATH="$(brew --prefix llvm)/bin:$PATH"
