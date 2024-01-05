@@ -24,7 +24,7 @@ link "${DOTFILES}/min.zsh-theme"   ".oh-my-zsh/themes/min.zsh-theme"
 SOLARIZED="${DOTFILES}/solarized"
 if [[ ! -d ${SOLARIZED} ]]; then
   # Install solarized theme
-  git clone git://github.com/altercation/solarized.git $SOLARIZED
+  git clone git@github.com:altercation/solarized.git $SOLARIZED
 fi
 
 SOLARIZED_VIM="${HOME}/.vim/colors/solarized.vim"
