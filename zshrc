@@ -94,7 +94,6 @@ export NVM_DIR="$HOME/.nvm"
 
 alias ibrew='arch -x86_64 /usr/local/bin/brew'
 
-
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 # Alias vim to nvim
@@ -153,6 +152,17 @@ alias gdm='git branch --merged | grep -v "\*" | xargs -n 1 git branch -d'
 # Search reflog for given input
 function glf() { git log --graph --reflog --grep=$1 }
 
+# Search all commits for a string
+gitfind() {
+  if [ -z "$1" ]; then
+    echo "Usage: gitfind \"string\""
+    return 1
+  fi
+
+  local search_string="$1"
+
+  git log -G"$search_string" --pretty=format:"%h - %an, %ar : %s"
+}
 
 ## Project aliases (these have project-specific dependencies)
 
@@ -200,7 +210,6 @@ alias e19='cd /Users/mario/.local/bin/ && rm elm && ln -s elm-0.19 elm && cd -'
 # Set elm binary to 0.19 alpha
 alias ex='cd /Users/mario/.local/bin/ && rm elm && ln -s elmx elm && cd -'
 
-
 # Set haskell formats. Prior was this;
 # hindent --style gibiansky $* | stylish-haskell
 
@@ -223,7 +232,6 @@ alias sg="stack ghci"
 
 # npm shortcuts with --legacy-peer-deps
 alias nil='npm i --legacy-peer-deps'
-
 
 # List processes listening on a given port, i.e. `port 8081`
 function port() {
@@ -254,7 +262,6 @@ function sl {
   osascript -e 'tell application "System Events" to tell appearance preferences to set dark mode to not dark mode'
 }
 
-
 # Meta
 
 # Edit dotfiles
@@ -262,8 +269,6 @@ alias dotfiles='cd ~/dev/projects/dotfiles && vsc .'
 
 # Ping test
 alias pt='ping google.com'
-
-
 
 # Project helpers
 
@@ -282,3 +287,6 @@ export PATH="$(brew --prefix llvm)/bin:$PATH"
 [ -f "/Users/mario/.ghcup/env" ] && source "/Users/mario/.ghcup/env" # ghcup-env
 
 export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
