@@ -275,8 +275,10 @@ alias pt='ping google.com'
 alias lc="cd ~/dev/projects/lamdera-compiler && vsc ."
 alias bento="cd ~/dev/projects/bento-life && vsc ."
 
-alias lx="~/lamdera/scripts/lx.sh"
+alias lx="~/lamdera/scripts/lxelm.sh"
 alias metro="cd ~/work/locomote/metro && coffee index.coffee"
+
+alias whe="rsync -av --exclude='.git' --exclude='node_modules' ~/work/warehouse ~/work/warehouse-edits && cd ~/work/warehouse-edits"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
