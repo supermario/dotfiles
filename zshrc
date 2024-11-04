@@ -127,7 +127,7 @@ alias gmbm='git merge-base HEAD origin/master'
 alias gfc="git --no-pager diff --name-status \`gmbm\`"
 
 # Git files new/modified only (since fork from master)
-alias gfcnm="git diff --diff-filter=AM --name-only \`gmbm\`"
+alias gfcnm="git diff --diff-filter=AMR --name-only \`gmbm\`"
 
 # Hard reset to origin/master
 alias grhom='git fetch origin && git reset --hard origin/master && git submodule update --init --recursive'
@@ -198,6 +198,8 @@ alias rta="rtc; rspec \`rtc\`"
 alias rtaff="rtc; rspec --fail-fast --only-failures \`rtc\`"
 
 alias rp="rta && rc && re"
+
+alias esc="npx eslint --color `gfcnm | grep -E '\.ts|\.js|\.vue'`"
 
 # Run elm-reactor
 alias er='elm-reactor'
@@ -281,6 +283,18 @@ alias metro="cd ~/work/locomote/metro && coffee index.coffee"
 
 alias whe="rsync -av --exclude='.git' --exclude='node_modules' ~/work/warehouse ~/work/warehouse-edits && cd ~/work/warehouse-edits"
 
+function edits {
+  project_path=~/dev/projects/$1
+  edit_path=~/dev/projects/$1-edits
+
+  if [ ! -d "$(readlink -f $project_path)" ] || [ ! -d "$(readlink -f $edit_path)" ]; then
+    echo "Project $1 does not exist in $project_path or $edit_path"
+    return 1
+  fi
+
+  rsync -av --exclude='.git' --exclude='node_modules' $project_path $edit_path && cd $edit_path
+}
+
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 export PATH="/usr/local/opt/libpq/bin:$PATH"
@@ -293,3 +307,5 @@ export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
+
+export HOMEBREW_NO_AUTO_UPDATE=1

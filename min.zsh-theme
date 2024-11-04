@@ -16,13 +16,19 @@ ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_DIRTY=" %{$fg[red]%}x"
 ZSH_THEME_GIT_PROMPT_CLEAN=" %{$fg[green]%}o"
 
+# Add devbox indicator if DEVBOX_SHELL_ENABLED is set
+local devbox_indicator=''
+if [[ -n "$DEVBOX_SHELL_ENABLED" ]]; then
+    devbox_indicator='📦 %{$fg[magenta]%}devbox%{$reset_color%} '
+fi
 
 # Prompt format: \n # USER DIRECTORY (git:± BRANCH STATE) (right: TIME) \n $
 PROMPT="
 %{$terminfo[bold]$fg[blue]%}#%{$reset_color%} \
 %{$fg[cyan]%}%n \
 %{$terminfo[bold]$fg[yellow]%}${current_dir}%{$reset_color%}\
-${git_info}
+${git_info} \
+${devbox_indicator}
 %{$terminfo[bold]$fg[red]%}$ %{$reset_color%}"
 
 # http://superuser.com/questions/357107/zsh-right-justify-in-ps1
@@ -40,6 +46,7 @@ PROMPT="
 %{$fg[white]%}in \
 %{$terminfo[bold]$fg[yellow]%}${current_dir}%{$reset_color%}\
 ${git_info} \
+${devbox_indicator}\
 %{$fg[white]%}[%*]
 %{$terminfo[bold]$fg[red]%}$ %{$reset_color%}"
 fi
