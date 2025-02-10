@@ -1,10 +1,16 @@
 #!/bin/sh
-set -e
+set -ex
 
 DOTFILES=`pwd`
 
-# Install ohmyzsh
-# sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+git config --global user.name "Mario Rogic"
+git config --global user.email hello@mario.net.au
+
+defaults write -g InitialKeyRepeat -int 15
+defaults write -g KeyRepeat -int 2
+
+# Would be nice to extend for other stuff, see `defaults read`
+# - Enable the trackpad touch to click
 
 link() {
   # Force create/replace the symlink
@@ -18,6 +24,11 @@ link "${DOTFILES}/gitconfig" ".gitconfig"
 #link "${DOTFILES}/tmux.conf" ".tmux.conf"
 
 #link "${HOME}/Dropbox/dev"   "dev"
+
+# Install ohmyzsh
+if [[ ! -d ~/.oh-my-zsh ]]; then
+  sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+fi
 
 link "${DOTFILES}/min.zsh-theme"   ".oh-my-zsh/themes/min.zsh-theme"
 
@@ -33,6 +44,18 @@ if [[ ! -f ${SOLARIZED_VIM} ]]; then
   cp "${SOLARIZED}/vim-colors-solarized/colors/solarized.vim" $SOLARIZED_VIM
 fi
 
+# Install homebrew
+if ! command -v brew &> /dev/null; then
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fi
+
+# Install Brewfile
+brew bundle
+
+
+if ! command -v devbox &> /dev/null; then
+  curl -fsSL https://get.jetify.com/devbox | bash
+fi
 
 
 # Gems
@@ -50,3 +73,6 @@ fi
 # Install neobundle
 #curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh > neobundle.sh
 #sh ./neobundle.sh
+
+# The of the manual stuff documented here:
+# https://www.notion.so/realmario/Mac-restore-setup-install-8636630a79184f2b9ac736487e2eafed?pvs=4

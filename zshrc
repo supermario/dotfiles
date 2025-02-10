@@ -52,6 +52,7 @@ plugins=(git heroku)
 export PATH="$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
+DISABLE_MAGIC_FUNCTIONS=true
 source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
@@ -102,7 +103,9 @@ alias vim='nvim'
 # Alias sublime to the simpler to type 'lime'
 alias lime='subl'
 
-alias vsc='code-insiders'
+# alias vsc='code-insiders'
+alias vsc='windsurf'
+alias ws='windsurf'
 
 # Alias docker-compose to dc
 alias dc='docker-compose'
@@ -279,6 +282,7 @@ alias lc="cd ~/dev/projects/lamdera-compiler && vsc ."
 alias bento="cd ~/dev/projects/bento-life && vsc ."
 
 alias lx="~/lamdera/scripts/lxelm.sh"
+alias lxe="~/dev/projects/lamdera-runtime-edit/scripts/lxelm.sh"
 alias metro="cd ~/work/locomote/metro && coffee index.coffee"
 
 alias whe="rsync -av --exclude='.git' --exclude='node_modules' ~/work/warehouse ~/work/warehouse-edits && cd ~/work/warehouse-edits"
@@ -309,3 +313,6 @@ export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
 export PATH="$PATH:$HOME/.rvm/bin"
 
 export HOMEBREW_NO_AUTO_UPDATE=1
+
+# Added by Windsurf
+export PATH="/Users/mario/.codeium/windsurf/bin:$PATH"
