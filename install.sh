@@ -58,21 +58,5 @@ if ! command -v devbox &> /dev/null; then
 fi
 
 
-# Gems
-#gem install git-up lunchy
-
-# Postgres
-#cp /usr/local/Cellar/postgresql/9.4.5/homebrew.mxcl.postgresql.plist ~/Library/LaunchAgents
-#lunchy start postgres
-#createuser -s -w postgres
-
-# Memcached
-#cp /usr/local/Cellar/memcached/1.4.24/homebrew.mxcl.memcached.plist  ~/Library/LaunchAgents
-#lunchy start memcached
-
-# Install neobundle
-#curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh > neobundle.sh
-#sh ./neobundle.sh
-
-# The of the manual stuff documented here:
+# Manual stuff documented here:
 # https://www.notion.so/realmario/Mac-restore-setup-install-8636630a79184f2b9ac736487e2eafed?pvs=4
