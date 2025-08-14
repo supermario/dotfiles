@@ -6,11 +6,32 @@ DOTFILES=`pwd`
 git config --global user.name "Mario Rogic"
 git config --global user.email hello@mario.net.au
 
+# How to figure out what UI settings correspond to what
+# defaults read > defaults.txt
+# ### change the thing
+# defaults read > defaults2.txt
+# icdiff defaults.txt defaults2.txt
+
+defaults write com.apple.finder AppleShowAllFiles YES
+killall Finder # Doesn't take effect unless we restart
+
+
+# These should work but don't seem to... why? Seems like it should? None of this advice worked
+# https://eclecticlight.co/2022/11/25/changing-preferences-isnt-so-simple/
+# https://apple.stackexchange.com/questions/331537/preferences-changes-using-defaults-not-applied
+# https://stackoverflow.com/questions/75272685/defaults-write-in-macos-never-writes-or-changes-the-value-in-defaults
+#
+# Last one is our exact example... trying to set Trackpad settings
 defaults write -g InitialKeyRepeat -int 15
 defaults write -g KeyRepeat -int 2
+defaults write -g "com.apple.swipescrolldirection" -bool false
 
-# Would be nice to extend for other stuff, see `defaults read`
-# - Enable the trackpad touch to click
+
+defaults -currentHost write com.apple.mouse tapBehavior -bool true
+plutil -replace Clicking -bool YES ~/Library/Preferences/com.apple.AppleMultitouchTrackpad.plist
+defaults import com.apple.AppleMultitouchTrackpad ~/Library/Preferences/com.apple.AppleMultitouchTrackpad.plist
+
+
 
 link() {
   # Force create/replace the symlink
@@ -21,6 +42,7 @@ link() {
 link "${DOTFILES}/zshrc"     ".zshrc"
 link "${DOTFILES}/vimrc"     ".vimrc"
 link "${DOTFILES}/gitconfig" ".gitconfig"
+link "${DOTFILES}/iterm2_shell_integration.zsh" ".iterm2_shell_integration.zsh"
 #link "${DOTFILES}/tmux.conf" ".tmux.conf"
 
 #link "${HOME}/Dropbox/dev"   "dev"
@@ -44,6 +66,12 @@ if [[ ! -f ${SOLARIZED_VIM} ]]; then
   cp "${SOLARIZED}/vim-colors-solarized/colors/solarized.vim" $SOLARIZED_VIM
 fi
 
+# Install rosetta (still required for some things, i.e. sorbet)
+ROSETTA_INSTALLED=$(pkgutil --pkg-info com.apple.pkg.RosettaUpdateAuto | grep install-time)
+if [[ -z ${ROSETTA_INSTALLED} ]]; then
+  softwareupdate --install-rosetta
+fi
+
 # Install homebrew
 if ! command -v brew &> /dev/null; then
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -52,7 +80,7 @@ fi
 # Install Brewfile
 brew bundle
 
-
+# Install devbox
 if ! command -v devbox &> /dev/null; then
   curl -fsSL https://get.jetify.com/devbox | bash
 fi

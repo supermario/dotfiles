@@ -1,3 +1,5 @@
+source ~/.iterm2_shell_integration.zsh
+
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
@@ -202,7 +204,7 @@ alias rtaff="rtc; rspec --fail-fast --only-failures \`rtc\`"
 
 alias rp="rta && rc && re"
 
-alias esc="npx eslint --color `gfcnm | grep -E '\.ts|\.js|\.vue'`"
+# alias esc="npx eslint --color `gfcnm | grep -E '\.ts|\.js|\.vue'`"
 
 # Run elm-reactor
 alias er='elm-reactor'
@@ -316,3 +318,6 @@ export HOMEBREW_NO_AUTO_UPDATE=1
 
 # Added by Windsurf
 export PATH="/Users/mario/.codeium/windsurf/bin:$PATH"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/mario/.lmstudio/bin"
