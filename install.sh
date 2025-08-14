@@ -66,6 +66,8 @@ if [[ ! -f ${SOLARIZED_VIM} ]]; then
   cp "${SOLARIZED}/vim-colors-solarized/colors/solarized.vim" $SOLARIZED_VIM
 fi
 
+# Install tokyonight theme
+
 # Install rosetta (still required for some things, i.e. sorbet)
 ROSETTA_INSTALLED=$(pkgutil --pkg-info com.apple.pkg.RosettaUpdateAuto | grep install-time)
 if [[ -z ${ROSETTA_INSTALLED} ]]; then
@@ -85,6 +87,14 @@ if ! command -v devbox &> /dev/null; then
   curl -fsSL https://get.jetify.com/devbox | bash
 fi
 
+if [[ ! -e ~/Library/Application\ Support/LibreWolf/NativeMessagingHosts ]]; then
+  open /Applications/LibreWolf.app
+  # Wait for 5 seconds
+  sleep 3
+  # Enable Native Messaging
+  # https://librewolf.net/docs/faq/#how-do-i-get-native-messaging-to-work-1
+  ln -s ~/Library/Application\ Support/Mozilla/NativeMessagingHosts ~/Library/Application\ Support/LibreWolf/NativeMessagingHosts
+fi
 
 # Manual stuff documented here:
 # https://www.notion.so/realmario/Mac-restore-setup-install-8636630a79184f2b9ac736487e2eafed?pvs=4

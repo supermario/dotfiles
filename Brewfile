@@ -1,7 +1,10 @@
 cask_args appdir: "~/Applications", require_sha: true
 
 # Utility
-cask "brave-browser"
+
+# Note: deprecated 2026-09-01 due to lack of MacOS signing. See also install notes for notifications setup for 1Pass
+# https://github.com/Homebrew/homebrew-cask/pull/221666/files#diff-a2f494476a9a3132aa0da63b28d9fa05eb7180e78c32148864c7cdc214df33b9R22
+cask "librewolf", args: { no_quarantine: true }
 cask "1password", appdir: "/Applications"
 brew "1password-cli"
 cask "notion"

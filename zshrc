@@ -55,6 +55,7 @@ export PATH="$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 DISABLE_MAGIC_FUNCTIONS=true
+export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
 source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
@@ -87,6 +88,7 @@ eval "$(direnv hook zsh)"
 
 export PATH="$PATH:$HOME/.local/bin" # Stack binaries
 export PATH="$PATH:$HOME/.cabal/bin" # Cabal binaries
+export PATH="$PATH:$HOME/.cargo/bin" # Cargo binaries
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
@@ -125,17 +127,44 @@ alias gdc='git diff --cached'
 # Colored word-diff, for differences between long lines, i.e. cdiff <file1> <file2>
 alias cdiff='wdiff -w "$(tput bold;tput setaf 1)" -x "$(tput sgr0)" -y "$(tput bold;tput setaf 2)" -z "$(tput sgr0)"'
 
-# Commit where we forked from master
-alias gmbm='git merge-base HEAD origin/master'
+# Function to detect the default branch name
+__git_default_branch() {
+  local default_branch=""
 
-# Git files changed/added/removed (since fork from master)
+  # Try to get the default branch from the remote HEAD reference
+  default_branch=$(git symbolic-ref refs/remotes/origin/HEAD 2>/dev/null | sed 's@^refs/remotes/origin/@@')
+
+  # If that fails, try to determine from existing local branches
+  if [ -z "$default_branch" ]; then
+    # Check if main exists
+    if git show-ref --verify --quiet refs/heads/main; then
+      default_branch="main"
+    # Check if master exists
+    elif git show-ref --verify --quiet refs/heads/master; then
+      default_branch="master"
+    # Default to master if neither exists
+    else
+      default_branch="master"
+    fi
+  fi
+
+  echo "$default_branch"
+}
+
+# Commit where we forked from default branch
+alias gmbm='git merge-base HEAD origin/$(__git_default_branch)'
+
+# Git files changed/added/removed (since fork from default branch)
 alias gfc="git --no-pager diff --name-status \`gmbm\`"
 
-# Git files new/modified only (since fork from master)
+# Git files new/modified only (since fork from default branch)
 alias gfcnm="git diff --diff-filter=AMR --name-only \`gmbm\`"
 
-# Hard reset to origin/master
-alias grhom='git fetch origin && git reset --hard origin/master && git submodule update --init --recursive'
+# Hard reset to origin/default_branch
+alias grhom='git fetch origin && git reset --hard origin/$(__git_default_branch) && git submodule update --init --recursive'
+
+# Checkout latest default branch
+alias gcml='git checkout $(__git_default_branch) && git fetch origin && git reset --hard origin/$(__git_default_branch) && git submodule update --init --recursive'
 
 # Git commit ammend
 alias gca='git commit --amend'
@@ -157,6 +186,13 @@ alias gdm='git branch --merged | grep -v "\*" | xargs -n 1 git branch -d'
 
 # Search reflog for given input
 function glf() { git log --graph --reflog --grep=$1 }
+
+# git fetch update
+function gfu() {
+  local ref="${1:-main}"
+  git fetch origin "$ref" && git update-ref refs/heads/$ref origin/$ref
+}
+
 
 # Search all commits for a string
 gitfind() {
@@ -182,8 +218,8 @@ alias rs='rails s -b 0.0.0.0'
 function rrg() { rake routes | grep $@ }
 
 # Run rubocop for all new/modified files with autocorrect
-alias rc="gfcnm | grep -e 'rb$' | grep -v 'schema' | xargs bundle exec rubocop -aD"
-alias re="gfcnm | grep -e 'rb$' | grep -v 'schema' | xargs bundle exec reek"
+alias rc="gfcnm | grep -E '\.rb$|\.rake$' | grep -v 'schema' | xargs bundle exec rubocop -AD"
+alias re="gfcnm | grep -E '\.rb$|\.rake$' | grep -v 'schema' | xargs bundle exec reek"
 
 alias rdbm='rake db:migrate'
 alias rdbmt='rake db:migrate RAILS_ENV=test'
@@ -193,10 +229,10 @@ alias rtc="gfcnm | grep -e 'spec\.rb\|\.feature'"
 # Rails tests changed specs only
 alias rtcs="rtc | grep 'spec.rb'"
 
-# Run rspec for all new/modified spec files since origin/master
+# Run rspec for all new/modified spec files since origin/default_branch
 alias rt="rtcs; rspec \`rtcs\`"
 
-# Run all spec/features new/modified since origin/master
+# Run all spec/features new/modified since origin/default_branch
 alias rta="rtc; rspec \`rtc\`"
 
 # Same as `rta` but fail fast, only failures
@@ -307,7 +343,6 @@ export PATH="/usr/local/opt/libpq/bin:$PATH"
 export PATH="$HOME/.cabal/bin:$HOME/.ghcup/bin:$PATH"
 export PATH="$(brew --prefix llvm)/bin:$PATH"
 
-[ -f "/Users/mario/.ghcup/env" ] && source "/Users/mario/.ghcup/env" # ghcup-env
 
 export PATH="/opt/homebrew/opt/postgresql@15/bin:$PATH"
 
@@ -321,3 +356,6 @@ export PATH="/Users/mario/.codeium/windsurf/bin:$PATH"
 
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:/Users/mario/.lmstudio/bin"
+
+
+[ -f "/Users/mario/.ghcup/env" ] && . "/Users/mario/.ghcup/env" # ghcup-env
